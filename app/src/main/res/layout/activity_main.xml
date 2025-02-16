@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/darkblue"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:background="@color/darkblue"
+            android:layout_height="?attr/actionBarSize"
+            app:title="" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Barre de titre avec la date sélectionnée -->
+    <TextView
+        android:id="@+id/selectedDateText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="date du jour"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/light_grey"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout"
+        android:paddingBottom="8dp"/>
+
+    <!-- Boutons de filtre (Mois, Semaine, Jour) -->
+    <LinearLayout
+        android:id="@+id/btntimeframe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/selectedDateText"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnMonth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Month"
+            android:backgroundTint="@color/light_blue"/>
+
+        <Button
+            android:id="@+id/btnWeek"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Week"
+            android:backgroundTint="@color/light_grey"
+            android:layout_marginStart="8dp"/>
+
+        <Button
+            android:id="@+id/btnDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Day"
+            android:backgroundTint="@color/light_grey"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
+    <!-- CalendarView -->
+    <com.applandeo.materialcalendarview.CalendarView
+        android:id="@+id/calendarView"
+        app:headerColor="@color/light_blue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/btntimeframe"
+        android:layout_marginTop="20dp"/>
+
+
+    <!-- Bouton flottant pour ajouter un événement -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnAddEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_margin="50dp"
+        android:src="@drawable/ic_add"
+        app:backgroundTint="@color/blue"
+        app:layout_constraintTop_toBottomOf="@+id/calendarView"
+        app:maxImageSize="56dp"
+         />
+</androidx.constraintlayout.widget.ConstraintLayout>
