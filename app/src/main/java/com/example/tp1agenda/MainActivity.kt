@@ -188,4 +188,56 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    fun removeEvent(event: Event, date: String) {
+        // Remove the event from the map
+        events[date]?.remove(event)
+
+        // If the list is empty, remove the date from the map
+        if (events[date]?.isEmpty() == true) {
+            events.remove(date)
+        }
+
+        // Update the calendar
+        updateCalendar()
+    }
+
+    private fun updateCalendar() {
+        calendarList.clear()
+        events.keys.forEach { dateKey ->
+            val dateParts = dateKey.split("-")
+            if (dateParts.size == 3) {
+                val day = dateParts[0].trim().toIntOrNull()
+                val month = dateParts[1].trim().toIntOrNull()
+                val year = dateParts[2].trim().toIntOrNull()
+
+                if (day != null && month != null && year != null) {
+                    val newCalendar = Calendar.getInstance().apply {
+                        set(year, month, day)
+                    }
+
+                    val newCalendarDay = CalendarDay(newCalendar).apply {
+                        val firstEvent = events[dateKey]?.firstOrNull()
+                        if (firstEvent != null) {
+                            imageResource = firstEvent.category.iconRes
+                            val iconDrawable: Drawable? = ContextCompat.getDrawable(
+                                this@MainActivity,
+                                firstEvent.category.iconRes
+                            )?.mutate()
+                            iconDrawable?.setTint(
+                                ContextCompat.getColor(
+                                    this@MainActivity,
+                                    firstEvent.category.colorRes
+                                )
+                            )
+                            imageDrawable = iconDrawable
+                            labelColor = firstEvent.category.colorRes
+                        }
+                    }
+                    calendarList.add(newCalendarDay)
+                }
+            }
+        }
+        calendarView.setCalendarDays(calendarList)
+    }
+
 }

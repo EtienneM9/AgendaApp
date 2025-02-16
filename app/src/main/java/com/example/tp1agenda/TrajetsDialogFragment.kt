@@ -16,7 +16,11 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 
 
-class TrajetsDialogFragment(private val trajets: List<Event>,private val mainView: View) : BottomSheetDialogFragment() {
+class TrajetsDialogFragment(private val events: MutableList<Event>,private val mainView: View) : BottomSheetDialogFragment(), EventDeleteListener {
+
+
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: EventAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setStyle(STYLE_NORMAL, R.style.DialogTheme)
@@ -35,9 +39,30 @@ class TrajetsDialogFragment(private val trajets: List<Event>,private val mainVie
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_trajets)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.adapter = EventAdapter(trajets)
+        recyclerView.adapter = EventAdapter(events, this)
 
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        recyclerView = view.findViewById(R.id.recycler_trajets)
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        adapter = EventAdapter(events, this)
+        recyclerView.adapter = adapter
+    }
+
+    override fun onDeleteEvent(event: Event, date: String) {
+        // Remove the event from the list
+        events.remove(event)
+        // Notify the adapter
+        adapter.notifyDataSetChanged()
+
+        // Remove the event from the map in MainActivity
+        if (activity is MainActivity) {
+            (activity as MainActivity).removeEvent(event, date)
+        }
     }
 
     override fun onStart() {

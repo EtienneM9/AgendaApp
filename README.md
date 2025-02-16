@@ -50,10 +50,11 @@ L'évènement est ajouté au calendrier en fermant la bottomsheet d'ajout. Un ic
 ### Liste des événements
 
 Consultation des différents évènements en cliquant sur un jour en particulier. L'évènement affiche le titre, l'heure de début et de fin ainsi que la couleur de la catégorie associée.
+Un bouton pour supprimer l'évènement est présent à droite de celui-ci.
 Malgrès mes nombreuses tentatives, impossible de garder le fond de la page transparent ce qui aurait été beaucoup plus esthétique.
 
-  <img src="images/eventlist.png" alt="Accueil" width="45%" />
-  <img src="images/eventlist2.png" alt="Accueil" width="45%" />
+  <img src="images/eventlistdel2.png" alt="Accueil" width="45%" />
+  <img src="images/eventlistdel.png" alt="Accueil" width="45%" />
 
 ## Explication du Backend
 

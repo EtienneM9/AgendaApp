@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="8dp"
     android:background="@drawable/rounded_corners_light_gray"
-    android:orientation="horizontal"
     android:padding="16dp">
 
     <View
         android:id="@+id/categoryColorView"
         android:layout_width="16dp"
-        android:layout_height="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
         android:layout_marginEnd="16dp" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/textContainer"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/categoryColorView"
         android:orientation="vertical">
 
         <TextView
@@ -49,4 +52,16 @@
                 android:textColor="@color/white" />
         </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+
+    <ImageButton
+        android:id="@+id/deleteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:background="@android:color/transparent"
+        android:contentDescription="Delete Event"
+        android:src="@drawable/ic_bin"
+       />
+
+</RelativeLayout>
