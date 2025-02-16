@@ -30,28 +30,30 @@ Voici quelques captures d'écran de l'interface utilisateur :
 
 ### Écran d'accueil
 
-Ecran d'acceuil avec la date du jour, le calendrier avec des icônes pour les jours comportant des événements, trois boutons pour les différentes vues et un bouton d'ajout d'événement.
+Ecran d'accueil avec la date du jour, le calendrier avec des icônes pour les jours comportant des événements, trois boutons pour les différentes vues et un bouton d'ajout d'événement.
 
   <img src="images/accueil.png" alt="Accueil" width="45%" />
 
 ### Ajout d'un événement
 
-Ajouter un événement avec un nom, une date, une heure de début et de fin est une catégorie parmis celles proposées.
+Ajouter un événement avec un nom, une date, une heure de début et de fin est une catégorie parmi celles proposées.
 
   <img src="images/add1.png" alt="Accueil" width="45%" />
   <img src="images/add2.png" alt="Accueil" width="45%" />
 
 ### Update de l'affichage du calendrier
 
-L'évènement est ajouté au calendrier en fermant la bottomsheet d'ajout. Un icône et une couleur sont associés au jour selon la catégorie de l'événement, ici, bleu pour MEETING. Avec plusieurs événements, l'iône et la couleur sont ceux du premier événement ajouté.
+L'évènement est ajouté au calendrier en fermant la bottomsheet d'ajout. Une icône et une couleur sont associées au jour selon la catégorie de l'événement, ici, bleu pour MEETING. Avec plusieurs événements, l'icône et la couleur sont ceux du premier événement ajouté.
 
 <img src="images/acceuiladd.png" alt="Accueil" width="45%" />
 
 ### Liste des événements
 
 Consultation des différents évènements en cliquant sur un jour en particulier. L'évènement affiche le titre, l'heure de début et de fin ainsi que la couleur de la catégorie associée.
+
 Un bouton pour supprimer l'évènement est présent à droite de celui-ci.
-Malgrès mes nombreuses tentatives, impossible de garder le fond de la page transparent ce qui aurait été beaucoup plus esthétique.
+
+Malgré mes nombreuses tentatives, impossible de garder le fond de la page transparent, ce qui aurait été beaucoup plus esthétique.
 
   <img src="images/eventlistdel2.png" alt="Accueil" width="45%" />
   <img src="images/eventlistdel.png" alt="Accueil" width="45%" />
